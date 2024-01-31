@@ -1,0 +1,123 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <meta charset="UTF-8">
+  <title th:text="#{crearPeliculaTitulo}"></title>
+  <style>
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="contenedora" style="float:none; margin: 0 auto;width: 900px;" >
+  <form th:action="@{/peliculas/crear}" th:object="${pelicula}" method="post">
+    <div class="clearfix">
+      <div style="float: left; width: 50%">
+        <h1 th:text="#{crearPeliculaH1}"></h1>
+      </div>
+      <div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
+
+        <div style="position: absolute; left: 39%; top : 39%;">
+          <input type="submit" th:value="#{crearBoton}"/>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="clearfix">
+      <hr/>
+    </div>
+
+    <div style="margin-top: 6px;" class="clearfix">
+      <div th:text="#{titulo}" style="float: left;width: 50%">
+
+      </div>
+      <div style="float: none;width: auto;overflow: hidden;">
+        <input th:field="*{titulo}" />
+        <ul class="text-danger " th:if="${#fields.hasErrors('titulo')}">
+          <li th:each="err : ${#fields.errors('titulo')}" th:text="${err}"></li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+      <div  th:text="#{descripcionCabecera}" style="float: left;width: 50%">
+        <ul class="text-danger " th:if="${#fields.hasErrors('descripcion')}">
+          <li th:each="err : ${#fields.errors('descripcion')}" th:text="${err}"></li>
+        </ul>
+
+      </div>
+      <div style="float: none;width: auto;overflow: hidden;">
+        <input th:field="*{descripcion}" />
+      </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+      <div th:text="#{fechaLanzamientoCabecera}" style="float: left;width: 50%">
+
+      </div>
+      <div style="float: none;width: auto;overflow: hidden;">
+        <input th:field="*{fechaLanzamiento}" />
+        <ul class="text-danger " th:if="${#fields.hasErrors('fechaLanzamiento')}">
+          <li th:each="err : ${#fields.errors('fechaLanzamiento')}" th:text="${err}"></li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 6px;" class="clearfix">
+      <div th:text="#{idIdiomaCabecera}" style="float: left;width: 50%">
+
+      </div>
+      <div style="float: none;width: auto;overflow: hidden;">
+        <input th:field="*{idIdioma}" />
+        <ul class="text-danger " th:if="${#fields.hasErrors('idIdioma')}">
+          <li th:each="err : ${#fields.errors('idIdioma')}" th:text="${err}"></li>
+        </ul>
+      </div>
+      <div th:text="#{duracionAlquilerCabecera}" style="float: left;width: 50%">
+
+      </div>
+      <div style="float: none;width: auto;overflow: hidden;">
+        <input th:field="*{duracionAlquiler}" />
+        <ul class="text-danger " th:if="${#fields.hasErrors('duracionAlquiler')}">
+          <li th:each="err : ${#fields.errors('duracionalquiler')}" th:text="${err}"></li>
+        </ul>
+      </div>
+      <div th:text="#{rentalRateCabecera}" style="float: left;width: 50%">
+
+      </div>
+      <div style="float: none;width: auto;overflow: hidden;">
+        <input th:field="*{rentalRate}" />
+        <ul class="text-danger " th:if="${#fields.hasErrors('rentalRate')}">
+          <li th:each="err : ${#fields.errors('rentalRate')}" th:text="${err}"></li>
+        </ul>
+      </div>
+      <div th:text="#{duracionCabecera}" style="float: left;width: 50%">
+
+      </div>
+      <div style="float: none;width: auto;overflow: hidden;">
+        <input th:field="*{duracion}" />
+        <ul class="text-danger " th:if="${#fields.hasErrors('duracion')}">
+          <li th:each="err : ${#fields.errors('duracion')}" th:text="${err}"></li>
+        </ul>
+      </div>
+    </div>
+    <div th:text="#{replacementCostCabecera}" style="float: left;width: 50%">
+
+    </div>
+    <div style="float: none;width: auto;overflow: hidden;">
+      <input th:field="*{replacementCost}" />
+      <ul class="text-danger " th:if="${#fields.hasErrors('replacementCost')}">
+        <li th:each="err : ${#fields.errors('replacementCost')}" th:text="${err}"></li>
+      </ul>
+    </div>
+
+  </form>
+</div>
+
+</body>
+</html>

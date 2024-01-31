@@ -1,0 +1,13 @@
+#cabeceras{
+    display: inline-flex;
+}
+#cabeceras > div{
+    margin-right: 50px;
+}
+#peliculas{
+    display: inline-flex;
+
+}
+#peliculas >div{
+    margin-right: 105px;
+}
