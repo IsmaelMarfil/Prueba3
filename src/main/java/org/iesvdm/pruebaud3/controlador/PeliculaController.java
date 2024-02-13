@@ -30,7 +30,7 @@ public class PeliculaController {
 
     @GetMapping("/peliculas/crear")
     public String crear(Model model) {
-//HOLA
+
         Pelicula pelicula = new Pelicula();
         model.addAttribute("pelicula", pelicula);
 

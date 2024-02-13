@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 @Data
@@ -18,10 +19,11 @@ public class Pelicula {
     private int id;
     @NotBlank
     @NotNull
-    @Length(min = 3, message = "Debe tener mas de 3 caracteres")
+    @Length(min = 3, message = "{validTitulo}")
     private String titulo;
     @Length(max = 300, message = "No puede tener mas de 300 caracteres")
     private String descripcion;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaLanzamiento;
     private int idIdioma;
     private int duracionAlquiler;
