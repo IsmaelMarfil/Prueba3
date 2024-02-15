@@ -76,6 +76,11 @@
     <div style="float: left;width: 10%" >Idioma</div>
     <div style="float: left;width: 10%" >Precio</div>
     <div style="float: left;width: 10%" >Duracion</div>
+
+    <div style="float: left;width: 10%" class="text-end" >Coste</div>
+    <div style="float: left;width: 10%" class="text-end"><p>Conteo Pelis Terror:</p>  </div>
+    <p style="float: left;width: 10%" th:text="${conteoPelisTerror}"></p>
+
 </div>
 <div  th:each="pelicula : ${listaPeliculasHorror}" style="float:none; margin: 0 auto;width: 95%;" class="clearfix" >
     <div class="ps-3" th:text="${pelicula.id}" style="float: left;width: 8%" >output</div>
@@ -86,6 +91,7 @@
     <div style="float: left;width: 10%" th:text="${pelicula.duracion ?: '&nbsp;'}">output</div>
     <div style="float: left;width: 10%" class="text-end" th:text="${#numbers.formatDecimal(pelicula.replacementCost
        , 1, 'DEFAULT', 2, 'DEFAULT')+' €'}">output</div>
+
     <div style="float: none;width: auto;overflow: hidden;text-align: center;">
         <form th:action="@{/peliculas}" style="display: inline;">
             <input type="submit"  value="Ver Detalle" class="btn btn-primary bg-gradient"/>

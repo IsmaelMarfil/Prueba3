@@ -29,11 +29,19 @@ public class PeliculaService {
         long conteo=listadoPeliculas.stream().count();
         return conteo;
     }
+
     public List<Idioma> listAllIdioma(){
         return  peliculaDAO.getAllIdioma();
     }
     public List<Pelicula> peliculaPorCategoria(int id_categoria){
         List<Pelicula> listPel = peliculaDAO.getPeliculaByIdCategoria(id_categoria);
+        long conteoTerror=listPel.stream().count();
         return listPel;
     }
+    public long peliculaPorCategoriaconteo(int id_categoria){
+        List<Pelicula> listPel = peliculaPorCategoria(id_categoria);
+        long conteoTerror=listPel.stream().count();
+        return conteoTerror;
+    }
+
 }

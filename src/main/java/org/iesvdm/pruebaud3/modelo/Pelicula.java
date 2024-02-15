@@ -35,6 +35,7 @@ public class Pelicula {
     private double replacementCost;
     private Date ultimaActualizacion;
     private Idioma idioma;
+    private String nombre_idioma;
 
     public Pelicula(int idPelicula, String titulo, String descripcion, java.sql.Date fechaLanzamiento, int idIdioma, int duracionAlquiler, double rentalRate, int duracion, double replacementCost, java.sql.Date ultimaActualizacion) {
     this.id=idPelicula;
@@ -48,6 +49,20 @@ public class Pelicula {
     this.replacementCost=replacementCost;
     this.ultimaActualizacion=ultimaActualizacion;
     }
+    public Pelicula(int idPelicula, String titulo, String descripcion, java.sql.Date fechaLanzamiento, int idIdioma, int duracionAlquiler, double rentalRate, int duracion, double replacementCost, java.sql.Date ultimaActualizacion,String nombre_idioma) {
+        this.id=idPelicula;
+        this.titulo=titulo;
+        this.descripcion=descripcion;
+        this.fechaLanzamiento=fechaLanzamiento;
+        this.idIdioma=idIdioma;
+        this.duracionAlquiler=duracionAlquiler;
+        this.rentalRate=rentalRate;
+        this.duracion=duracion;
+        this.replacementCost=replacementCost;
+        this.ultimaActualizacion=ultimaActualizacion;
+        this.nombre_idioma=nombre_idioma;
+    }
+
 
     public Pelicula(int idPelicula, String titulo, java.sql.Date fechaLanzamiento, int idIdioma, int duracionAlquiler, double rentalRate, int duracion, double replacementCost, java.sql.Date ultimaActualizacion) {
         this.id=idPelicula;

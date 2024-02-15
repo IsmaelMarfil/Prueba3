@@ -1,6 +1,7 @@
 package org.iesvdm.pruebaud3.controlador;
 
 import jakarta.validation.Valid;
+import org.iesvdm.pruebaud3.dao.PeliculaDAO;
 import org.iesvdm.pruebaud3.modelo.Idioma;
 import org.iesvdm.pruebaud3.modelo.Pelicula;
 import org.iesvdm.pruebaud3.servicio.PeliculaService;
@@ -18,7 +19,8 @@ import java.util.List;
 public class PeliculaController {
     @Autowired
     private PeliculaService peliculaService;
-
+    @Autowired
+    private PeliculaDAO peliculaDAO ;
     @GetMapping("/peliculas")
     public String listar(Model model) {
 
@@ -26,8 +28,8 @@ public class PeliculaController {
         model.addAttribute("listaPeliculas", listAllPel);
         long conteo=peliculaService.conteoPeliculas();
         model.addAttribute("conteo",conteo);
-        model.addAttribute("listaPeliculasHorror",peliculaService.peliculaPorCategoria(11));
-
+        model.addAttribute("listaPeliculasHorror",peliculaDAO.getPeliculaByIdCategoria(5));
+        model.addAttribute("conteoPelisTerror",peliculaService.peliculaPorCategoriaconteo(5));
         return "peliculas";
 
     }
@@ -51,6 +53,7 @@ public class PeliculaController {
             model.addAttribute("pelicula", pelicula);
             return "crear-pelicula";
         }
+
         peliculaService.newPelicula(pelicula);
         return "redirect:/peliculas?newPeliculaID=" + pelicula.getId();
 

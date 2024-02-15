@@ -34,6 +34,8 @@ public class PeliculaDAOImpl implements PeliculaDAO {
         return listIdioma;
     }
 
+
+
     public List<Pelicula> getPeliculaByIdCategoria(int idCategoria){
         List<Pelicula> listPel = jdbcTemplate.query("""
                             SELECT * FROM pelicula P 

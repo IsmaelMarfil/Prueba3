@@ -75,13 +75,23 @@
 
 
       <div style="float: none;width: auto;overflow: hidden;">
-        <select th:field="*{idioma}">
-          <option th:each="lang : ${listaIdioma}" th:value="${lang}" th:text="${lang.nombre}"></option>
-        </select>
+<!--        <select th:field="*{idioma.id_idioma}">-->
+<!--          <option th:each="idioma : ${listaIdioma}" th:value="${idioma.id_idioma}" th:text="${idioma.nombre}"></option>-->
+<!--        </select>-->
+        <input th:field="*{idIdioma}" class="col-5 border" />
         <ul class="text-danger " th:if="${#fields.hasErrors('idioma')}">
           <li th:each="err : ${#fields.errors('idioma')}" th:text="${err}"></li>
         </ul>
       </div>
+<!--      <div class="mb-3">-->
+<!--        <label class="form-label" th:text="#{idioma}">Idioma*: </label>-->
+<!--        <select  class="js-example-basic-single" th:field="*{idioma.id_idioma}">-->
+<!--          <option th:each="i : ${idiomas}" th:value="${i.id_idioma}" th:text="${i.nombre}"></option>-->
+<!--        </select>-->
+<!--        <p class="alert alert-danger" th:errors="*{idioma}"></p>-->
+<!--      </div>-->
+
+
 
 
 
