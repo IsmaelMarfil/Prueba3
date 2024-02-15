@@ -1,5 +1,6 @@
 package org.iesvdm.pruebaud3.dao;
 
+import org.iesvdm.pruebaud3.modelo.Idioma;
 import org.iesvdm.pruebaud3.modelo.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.batch.BatchProperties;
@@ -24,6 +25,30 @@ public class PeliculaDAOImpl implements PeliculaDAO {
         return listPel;
 
     }
+    @Override
+    public List<Idioma> getAllIdioma(){
+        List<Idioma> listIdioma = jdbcTemplate.query(
+                "SELECT * FROM idioma",
+                (rs, rowNum) -> new Idioma(rs.getInt("id_idioma"),rs.getString("nombre"),rs.getDate("ultima_actualizacion"))
+        );
+        return listIdioma;
+    }
+
+    public List<Pelicula> getPeliculaByIdCategoria(int idCategoria){
+        List<Pelicula> listPel = jdbcTemplate.query("""
+                            SELECT * FROM pelicula P 
+                                left join pelicula_categoria PC on PC.id_pelicula = P.id_pelicula
+                                left join categoria C on PC.id_categoria = C.id_categoria
+                                WHERE C.id_categoria = ?""",
+                (rs, rowNum) -> UtilDAO.newPelicula(rs),
+                idCategoria
+        );
+
+
+
+        return listPel;
+    }
+
     @Override
     public synchronized void create(Pelicula pelicula) {
 

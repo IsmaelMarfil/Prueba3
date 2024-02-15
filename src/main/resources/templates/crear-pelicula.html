@@ -20,7 +20,7 @@
   <form th:action="@{/peliculas/crear}" th:object="${pelicula}" method="post">
     <div class="clearfix">
       <div style="float: left; width: 50%">
-        <h1 th:text="#{crearPeliculaH1}"></h1>
+        <h1 th:text="#{crearPelicula}"></h1>
       </div>
       <div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
 
@@ -72,12 +72,19 @@
       <div th:text="#{idIdiomaCabecera}" style="float: left;width: 50%">
 
       </div>
+
+
       <div style="float: none;width: auto;overflow: hidden;">
-        <input th:field="*{idIdioma}" />
-        <ul class="text-danger " th:if="${#fields.hasErrors('idIdioma')}">
-          <li th:each="err : ${#fields.errors('idIdioma')}" th:text="${err}"></li>
+        <select th:field="*{idioma}">
+          <option th:each="lang : ${listaIdioma}" th:value="${lang}" th:text="${lang.nombre}"></option>
+        </select>
+        <ul class="text-danger " th:if="${#fields.hasErrors('idioma')}">
+          <li th:each="err : ${#fields.errors('idioma')}" th:text="${err}"></li>
         </ul>
       </div>
+
+
+
       <div th:text="#{duracionAlquilerCabecera}" style="float: left;width: 50%">
 
       </div>

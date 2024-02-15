@@ -28,11 +28,37 @@ public class Pelicula {
     private int idIdioma;
     private int duracionAlquiler;
     @DecimalMin(value = "0", message = "Debe ser mayor a 0")
-    private double rentalRate;
+     double rentalRate;
     @DecimalMin(value = "0", message = "La duracion debe ser mayor a 0")
     private int duracion;
     @DecimalMin(value = "19.99", message = "Debe ser mayor a  19.99")
     private double replacementCost;
     private Date ultimaActualizacion;
+    private Idioma idioma;
 
+    public Pelicula(int idPelicula, String titulo, String descripcion, java.sql.Date fechaLanzamiento, int idIdioma, int duracionAlquiler, double rentalRate, int duracion, double replacementCost, java.sql.Date ultimaActualizacion) {
+    this.id=idPelicula;
+    this.titulo=titulo;
+    this.descripcion=descripcion;
+    this.fechaLanzamiento=fechaLanzamiento;
+    this.idIdioma=idIdioma;
+    this.duracionAlquiler=duracionAlquiler;
+    this.rentalRate=rentalRate;
+    this.duracion=duracion;
+    this.replacementCost=replacementCost;
+    this.ultimaActualizacion=ultimaActualizacion;
+    }
+
+    public Pelicula(int idPelicula, String titulo, java.sql.Date fechaLanzamiento, int idIdioma, int duracionAlquiler, double rentalRate, int duracion, double replacementCost, java.sql.Date ultimaActualizacion) {
+        this.id=idPelicula;
+        this.titulo=titulo;
+        this.descripcion=descripcion;
+        this.fechaLanzamiento=fechaLanzamiento;
+        this.idIdioma=idIdioma;
+        this.duracionAlquiler=duracionAlquiler;
+        this.rentalRate=rentalRate;
+        this.duracion=duracion;
+        this.replacementCost=replacementCost;
+        this.ultimaActualizacion=ultimaActualizacion;
+    }
 }

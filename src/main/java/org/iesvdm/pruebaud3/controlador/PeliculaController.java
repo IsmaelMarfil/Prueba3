@@ -1,6 +1,7 @@
 package org.iesvdm.pruebaud3.controlador;
 
 import jakarta.validation.Valid;
+import org.iesvdm.pruebaud3.modelo.Idioma;
 import org.iesvdm.pruebaud3.modelo.Pelicula;
 import org.iesvdm.pruebaud3.servicio.PeliculaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class PeliculaController {
 
         List<Pelicula> listAllPel =  peliculaService.listAll();
         model.addAttribute("listaPeliculas", listAllPel);
+        long conteo=peliculaService.conteoPeliculas();
+        model.addAttribute("conteo",conteo);
+        model.addAttribute("listaPeliculasHorror",peliculaService.peliculaPorCategoria(11));
 
         return "peliculas";
 
@@ -30,8 +34,10 @@ public class PeliculaController {
 
     @GetMapping("/peliculas/crear")
     public String crear(Model model) {
-
+        List<Idioma> listAllIdioma=peliculaService.listAllIdioma();
         Pelicula pelicula = new Pelicula();
+
+        model.addAttribute("listaIdioma",listAllIdioma);
         model.addAttribute("pelicula", pelicula);
 
         return "crear-pelicula";
