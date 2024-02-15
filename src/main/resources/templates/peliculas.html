@@ -57,7 +57,7 @@
         <div class="ps-3" th:text="${pelicula.id}" style="float: left;width: 8%" >output</div>
         <div style="float: left;width: 16%" th:text="${pelicula.getTitulo()}" >output</div>
         <div style="float: left;width: 10%"  th:text="${pelicula.getFechaLanzamiento()}">output</div>
-        <div style="float: left;width: 10%" th:text="${pelicula.getIdIdioma() ?: '&nbsp;'}">output</div>
+        <div style="float: left;width: 10%" th:text="${pelicula.getIdIdioma()  ?: '&nbsp;'}">output</div>
        <div style="float: left;width: 10%;overflow: hidden" th:text="${#numbers.formatDecimal(pelicula.rentalRate, 1, 'DEFAULT', 2, 'DEFAULT')+' €'}">output</div>
         <div style="float: left;width: 10%" th:text="${pelicula.duracion ?: '&nbsp;'}">output</div>
        <div style="float: left;width: 10%" class="text-end" th:text="${#numbers.formatDecimal(pelicula.replacementCost
